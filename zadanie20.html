@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>
+		Obliczanie Pola i obwodu
+		</title>
+		<script language="JavaScript">
+			function pol_fes(a_fes,b_fes,h_fes)
+				{
+				a_dana_fes=parseFloat(a_fes)
+				b_dana_fes=parseFloat(b_fes)
+				h_dana_fes=parseFloat(h_fes)
+				P_wynik_fes=((a_dana_fes+b_dana_fes)*h_dana_fes)/2
+				
+				document.getElementsByName('pole')[0].value=P_wynik_fes.toFixed(2); 
+				alert("Pole="+P_wynik_fes.toFixed(2)+" cm^2"); 
+				wyprowadz_pole_fes.innerHTML="Pole="+P_wynik_fes.toFixed(2)+" cm^2"+"<br>"; 
+				}
+				
+			function obw_fes(a_fes,b_fes,h_fes)
+				{
+				a_dana_fes=parseFloat(a_fes)
+				b_dana_fes=parseFloat(b_fes)
+				h_dana_fes=parseFloat(h_fes)
+				c_fes=Math.abs(b_dana_fes-a_dana_fes)/2
+				d_fes=Math.sqrt(Math.pow(c_fes,2)+Math.pow(h_dana_fes,2))
+				obw_wynik_fes=a_dana_fes+b_dana_fes+(2*d_fes)
+				
+				document.getElementsByName('obwod')[0].value=obw_wynik_fes.toFixed(2);
+				alert("obwod="+obw_wynik_fes.toFixed(2));
+				wyprowadz_obwod_fes.innerHTML="obwod="+obw_wynik_fes.toFixed(2);
+				}
+		</script>
+	</head>
+	
+	<body>
+		Obliczanie Pola i obwodu
+		<br> <br>
+		<form name="formularz" action="..." onsubmit="pol_fes(this.a_pob.value,this.b_pob.value,this.h_pob.value); fes(this.a_pob.value,this.b_pob.value,this.h_pob.value);return false">
+			Podaj podstawe a=
+			<input size="6" name="a_fes">
+			Podaj podstawe b=
+			<input size="6" name="b_fes">
+			Podaj wysokosc h=
+			<input size="6" name="h_fes">
+			
+			<br> <br>
+			<input TYPE="submit" Value="oblicz" >
+			<br> <br>
+			P=
+			<input size="6" name="pole">
+			obw=
+			<input size="6" name="obwod">
+		</form>
+		<table>
+			<tr id="wyprowadz_pole_fes"></tr>
+			<tr id="wyprowadz_obwod_fes"></tr>
+		</table>
+	</body>
+</html>
